@@ -17,34 +17,34 @@
  * @return {string}
  */
 var addBinary = function(a, b) {
-    if(a === '0') {
-      return b
-    }
-    if (b === '0') {
-      return a
-    }
-    var num = a.length - b.length
-    var zero = new Array(num > 0 ? num : -num).fill('0').join('')
-    if (num >= 0) {
-      b = zero + b
+  if (a === "0") {
+    return b;
+  }
+  if (b === "0") {
+    return a;
+  }
+  var num = a.length - b.length;
+  var zero = new Array(num > 0 ? num : -num).fill("0").join("");
+  if (num >= 0) {
+    b = zero + b;
+  } else {
+    a = zero + a;
+  }
+  var result = "";
+  var is2 = false;
+  var i = a.length - 1;
+  while (i >= 0 || is2) {
+    var current = parseInt(a[i] || 0) + parseInt(b[i] || 0) + (is2 ? 1 : 0);
+    if (current >= 2) {
+      is2 = true;
+      current = current - 2 + "";
     } else {
-      a = zero + a
+      is2 = false;
     }
-    var result = ''
-    var is2 = false
-    var i = a.length - 1
-    while(i >= 0 || is2){
-      var current = parseInt(a[i] || 0) + parseInt(b[i] || 0) + (is2 ? 1 : 0)
-      if(current >= 2) {
-        is2 = true
-        current = (current - 2) + ''
-      } else {
-        is2 = false
-      }
-      result = current + result
-      i--
-    }
-    return result
+    result = current + result;
+    i--;
+  }
+  return result;
 };
 
-console.log(addBinary('100', '110010'))
+console.log(addBinary("100", "110010"));
