@@ -8,6 +8,7 @@
 // num1 和num2 都不包含任何前导零。
 // 你不能使用任何內建 BigInteger 库， 也不能直接将输入的字符串转换为整数形式。
 
+// todo 使用双指针加快速度
 /**
  * @param {string} num1
  * @param {string} num2
