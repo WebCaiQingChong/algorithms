@@ -2,3 +2,27 @@
 
 // 如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。
 
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} p
+ * @param {TreeNode} q
+ * @return {boolean}
+ */
+ var isSameTree = function(p, q) {
+    if (p === q) {
+        return true
+    } else if (!p || !q){
+        return false
+    } else if (p.val !== q.val) {
+        return false
+    } else {
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+    }
+};
