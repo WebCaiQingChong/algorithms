@@ -25,7 +25,7 @@
  * @param {number} target
  * @return {number}
  */
-var searchInsert = function(nums, target) {
+var searchInsert1 = function(nums, target) {
   // 掐头
     var length = nums.length
     if (length < 1) {
@@ -45,4 +45,36 @@ var searchInsert = function(nums, target) {
     }
     return index
 };
+
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+ var searchInsert = function(nums, target) {
+  
+  let left = 0
+  let right = nums.length - 1
+  let povit
+  while (left <= right) {
+    povit = left + Math.floor((right - left) / 2)
+
+    let result = nums[povit]
+    if (result === target) {
+      return povit
+    }
+
+    if (result < target) {
+      left = povit + 1
+    } else {
+      right = povit - 1
+    }
+  }
+
+  return left
+  
+};
+
+
 
